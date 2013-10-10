@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Demo For MultiEllipsis</title>
+    <!–[if lt IE9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]–>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+    <style>
+        table {
+            table-layout: fixed;
+            font-size: 14px;
+        }
+        th {
+            width: 33.3%;
+            vertical-align: middle !important;
+        }
+        td, th {
+            text-align: center;
+        }
+        body div.container .table td {
+            padding: 0 20px;
+        }
+        body div.container .table .btns td {
+            padding: 20px;
+        }
+        xmp {
+            word-wrap: break-word;
+        }
+        .html td, .css td, .js td {
+            text-align: left;
+        }
+        .preview td {
+            padding: 40px 0 !important;
+            background: #eee;
+        }
+        .box {
+            border: 2px solid #999;
+            background: #fff;
+            width: 60%;
+            text-align: left;
+            margin: 0 auto;
+        }
+        .cut {
+            border: 2px dashed #ccc;
+        }
+        .btn {
+            vertical-align: middle;
+        }
+    </style>
+    <script src="http://g.tbcdn.cn/kissy/k/1.3.1/kissy-min.js" charset="utf-8"></script>
+    <script src="../build/index-min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header"></div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>DEMO1</th>
+                    <th>DEMO2</th>
+                    <th>DEMO3</th>
+                </tr>
+                <tr>
+                    <th> 省略原元素 <span class="btn btn-primary" id="test1">点我</span></th>
+                    <th> 省略子元素 <span class="btn btn-primary" id="test2">点我</span></th>
+                    <th> 强制精度，确保显示最多内容 <span class="btn btn-primary" id="test3">点我</span></th>
+                </tr>
+                <tr class="preview">
+                    <td>
+                        <h5>计算虚线框元素的高度，并裁剪虚线框元素内容</h5>
+                        <span class="test1 box cut">这是很长的内容这是很长的内容这是很长的内容这是很长的内容这是很长的内容</span>
+                        <style>
+                            .test1 {
+                                display: inline-block;
+                                height: 44px;
+                            }
+                        </style>
+                    </td>
+                    <td>
+                        <h5>计算实线框元素高度，但裁剪虚线框元素内容</h5>
+                        <div class="test2 box" data-ks-child=".cut" >
+                            <p class="cut">这部分会被省略这部分会被省略这部分会被省略这部分会被省略这部分会被省略这部分会被省略</p>
+                            <p>这是不会被裁剪内容这是不会被裁剪内容</p>
+                        </div>
+                        <style>
+                            .test2 {
+                                padding: 20px;
+                                height: 138px;
+                            }
+                        </style>
+                    </td>
+                    <td>
+                        <h5>exact: false</h5>
+                        <span class="test3 box cut" data-ks-endhtml='...<a href="#">查看更多 ></a>'>这是很长的内容这是很长的内容这是很长的内容这是很长的内容这是很长的内容</span>
+                        <br>
+                        <br>
+                        <br>
+                        <h5>exact: true</h5>
+                        <span class="test3 box cut" data-ks-exact="true" data-ks-endhtml='...<a href="#">查看更多 ></a>'>这是很长的内容这是很长的内容这是很长的内容这是很长的内容这是很长的内容</span>
+                        <style>
+                            .test3 {
+                                display: inline-block;
+                                height: 44px;
+                            }
+                        </style>
+                    </td>
+                </tr>
+                <tr class="html">
+                    <td>
+                        <xmp>
+<span class="test1 box cut">这是很长的内容这是很长的内容这是很长的内容这是很长的内容这是很长的内容</span>
+                        </xmp>
+                    </td>
+                    <td>
+                        <xmp>
+<div class="test2 box">
+    <p class="cut">这部分会被省略这部分会被省略这部分会被省略这部分会被省略这部分会被省略这部分会被省略</p>
+    <p>这是不会被裁剪内容这是不会被裁剪内容</p>
+</div>                            
+                        </xmp>
+                    </td>
+                    <td>
+                        <xmp>
+<span class="test3 box cut">这是很长的内容这是很长的内容这是很长的内容这是很长的内容这是很长的内容</span>
+<span class="test3 box cut" data-ks-exact="true">这是很长的内容这是很长的内容这是很长的内容这是很长的内容这是很长的内容</span>
+                        </xmp>
+
+                    </td>
+                </tr>
+                <tr class="css">
+                    <td>
+                        <xmp>
+.test1 {
+    display: inline-block;
+    height: 44px;
+}                            
+                        </xmp> 
+                    </td>
+                    <td>
+                        <xmp>
+.test2 {
+    padding: 20px;
+    height: 138px;
+}
+                        </xmp>
+                    </td>
+                    <td>
+                        <xmp>
+.test3 {
+    display: inline-block;
+    height: 44px;
+}                           
+                        </xmp>
+                    </td>
+                </tr>
+                <tr class="js">
+                    <td>
+                        <xmp>
+KISSY.use("gallery/multiellipsis/1.0/index", function(S, mu){
+   mu('.test1') 
+});                          
+                        </xmp>
+                    </td>
+                    <td>
+                        <xmp>
+KISSY.use("gallery/multiellipsis/1.0/index", function(S, mu){
+   mu('.test2', {
+        child: '.cut'
+   }) 
+});                          
+                        </xmp>                        
+                    </td>
+                    <td>
+                        <xmp>
+KISSY.use("gallery/multiellipsis/1.0/index", function(S, mu){
+   mu('.test3') 
+});                          
+                        </xmp>                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+      <p>© KISSY TEAM 2013</p>
+    </div>
+
+</div>
+<script>
+    var S = KISSY;
+
+    KISSY.config({
+        packages: {
+            'gallery': {
+                'path': '../'
+            }
+        }
+    })
+
+    S.use('gallery/multiellipsis/1.0/index', function (S, multiEllipsis) {
+        var $ = S.all;
+        $('body').delegate('click', '.btn', function(ev){
+            ev.halt();
+            var key = ev.target.id, 
+                el  = '.' + key;
+            multiEllipsis(el, {
+                interval: 15,
+                endHTML: "<span style='color: red'>...</span>"
+            });
+
+        })
+    })
+</script>
+</body>
+</html>
