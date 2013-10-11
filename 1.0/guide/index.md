@@ -9,9 +9,10 @@ MultiEllipsis 是基于 KISSY 的支持多行文本自动缩略的工具，支�
 
 ## 使用前提
   1. 元素已经插入文档流；
-  2. 元素不能设置隐藏；
+  2. 元素不能隐藏；
   3. 内联(inline)元素必需在参数(config.height)或属性(data-ks-height)中指定高度；
-  4. 建议先写 CSS overflow: hidden，否则页面载入时会出现跳动，另外可以避免 IE 下高度读取不正确的 bug
+  4. 建议先写 CSS overflow: hidden，否则组件执行时会出现瞬间跳动，另外可以避免 IE 下高度读取不正确的 bug
+  5. 组件不会处理元素宽度溢出，需自行设置 word-break/word-wrap/white-space 预先换行
 
 ## 快速使用
 
@@ -19,6 +20,7 @@ MultiEllipsis 是基于 KISSY 的支持多行文本自动缩略的工具，支�
 
     S.use('gallery/multiellipsis/1.0/index', function (S, multiEllipsis) {
          // multiEllipsis 是一个接受参数的函数
+         // multiEllipsis(element, config)
          
          // 计算元素高度，并直接裁剪该元素
          multiEllipsis("#J_Inner", {
