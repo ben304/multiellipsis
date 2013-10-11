@@ -1,7 +1,7 @@
 {
     "name"    : "multiellipsis",
     "version" : "1.0",
-    "desc"    : "适用于多行文本的自动截断工具",
+    "desc"    : "支持多行的溢出文本省略，可自定义省略字符",
     "cover"   : "",
     "tag"     :"util, ellipsis",
     "author"  : {
