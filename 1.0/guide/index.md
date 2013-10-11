@@ -37,7 +37,7 @@ MultiEllipsis 是基于 KISSY 的支持多行文本自动缩略的工具，支�
 
 ## 参数说明
 
-* **height**: `[String]` `default: 样式计算高度` 自定义高度；包含 padding，内联元素必须预先指定；优先读取元素上的 data-ks-height 属性
+* **height**: `[String]` `default: 样式计算高度` 自定义高度；包含 padding，内联元素必须指定；优先读取元素上的 data-ks-height 属性
 
 * **child**: `[String]` `default: ""` 子元素选择器字符串；如果不为空，则裁剪符合这个选择器的第一个元素；优先读取 data-ks-child
 
